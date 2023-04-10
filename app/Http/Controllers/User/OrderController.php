@@ -208,6 +208,6 @@ class OrderController extends Controller
         Mail::to(['sigeti385@gmail.com', 'crimea-prokat@mail.ru'])->send(new OrderCreateMail($order));
 //        Mail::to(['sigeti385@gmail.com'])->send(new OrderCreateMail($order));
 
-        return response()->json(['result'=>'Мы скоро с вами свяжемся']);
+        return response()->json(['result'=>'Мы скоро с вами свяжемся', 'created' => true]);
     }
 }

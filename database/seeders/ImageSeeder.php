@@ -2,10 +2,21 @@
 
 namespace Database\Seeders;
 
+use App\Models\Car;
+use App\Services\Interfaces\ImagesContract;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
+use Illuminate\Http\UploadedFile;
 
 class ImageSeeder extends Seeder
 {
+    protected $faker;
+
+    public function __construct()
+    {
+        $this->faker = Factory::create();
+        $this->imagesContract = app( ImagesContract::class);
+    }
     /**
      * Run the database seeds.
      *
@@ -13,6 +24,8 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $car = Car::query()->first();
+
+        $this->imagesContract->saveMainImage(UploadedFile::fake()->image('photo2.jpg'), $car->id);
     }
 }

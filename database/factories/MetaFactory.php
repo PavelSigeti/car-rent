@@ -25,7 +25,7 @@ class MetaFactory extends Factory
             'type' => $this->faker->randomElement(['body', 'class', 'brand', 'transmission']),
             'title' => $this->faker->randomElement(['Кузов', 'Класс', 'Бренд', 'Коробка передач']),
             'name' => $this->faker->word(),
-            'slug' => $this->faker->word().'-'.$this->faker->numberBetween(1,99),
+            'slug' => $this->faker->word().'-'.$this->faker->word().'-'.$this->faker->word(),
             'seo_title' => $this->faker->word().'-'.$this->faker->numberBetween(1,99),
             'seo_description' => $this->faker->word(),
             'big_title' => $this->faker->word(),

@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingSeeder::class);
         $this->call(CarMetaSeeder::class);
         $this->call(PlaceSeeder::class);
+        $this->call(PostSeeder::class);
+        $this->call(PageSeeder::class);
+        $this->call(CarPriceSeeder::class);
+        $this->call(ServiceSeeder::class);
+        $this->call(ImageSeeder::class);
     }
 }

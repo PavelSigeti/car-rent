@@ -13,6 +13,7 @@ use App\Repositories\ImageRepository;
 use App\Repositories\MetaRepository;
 use App\Repositories\PlaceRepository;
 use App\Services\Interfaces\ImagesContract;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -104,17 +105,6 @@ class AdminCarController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -150,6 +140,7 @@ class AdminCarController extends Controller
      */
     public function update(CarStoreRequest $request, $id)
     {
+
         $car = $this->adminCarRepository->getById($id);
 
         $car->update([

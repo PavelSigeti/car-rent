@@ -61,18 +61,7 @@ class PostController extends Controller
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
         ]);
-        return redirect()->route('page.edit', [$post->id]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('post.edit', [$post->id]);
     }
 
     /**

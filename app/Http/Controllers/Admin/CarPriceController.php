@@ -55,7 +55,7 @@ class CarPriceController extends Controller
             'price3' => $request->price3,
         ]);
 
-        return;
+        return response()->json(['result' => true]);
     }
 
     /**

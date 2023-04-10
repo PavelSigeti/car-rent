@@ -57,7 +57,6 @@ class PageController extends Controller
             'slug' => $slug,
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
-            'menu' => $request->boolean('menu'),
         ]);
         return redirect()->route('page.edit', [$page->id]);
     }
