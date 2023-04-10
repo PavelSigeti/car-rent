@@ -1,0 +1,7 @@
+	RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^www.foxrent.site$ [NC]
+    RewriteRule ^(.*)$ http://foxrent.site/$1 [R=301,L]
+

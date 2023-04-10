@@ -1,0 +1,3 @@
+Sitemap: https://foxrent.site/sitemap
+User-Agent: * 
+Host: foxrent.site

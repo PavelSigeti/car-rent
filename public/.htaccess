@@ -1,0 +1,63 @@
+#<IfModule mod_rewrite.c>
+#    <IfModule mod_negotiation.c>
+#        Options -MultiViews -Indexes
+#    </IfModule>
+#
+#    RewriteEngine On
+#
+#    RewriteCond %{HTTP_HOST} ^www.foxrent.site$ [NC]
+#    RewriteRule ^(.*)$ https://foxrent.site/$1 [R=301,L]
+#
+#    RewriteCond %{SERVER_PORT} !^443$
+#    RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+#
+#    <FilesMatch ".(webp|gif|jpg|jpeg|png|ico|svg|js|css|pdf)$">
+#    Header set Cache-Control "max-age=31536000"
+#    </FilesMatch>
+#
+#    # Handle Authorization Header
+#    RewriteCond %{HTTP:Authorization} .
+#    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+#
+#    # Redirect Trailing Slashes If Not A Folder...
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_URI} (.+)/$
+#    RewriteRule ^ %1 [L,R=301]
+#
+#    # Send Requests To Front Controller...
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^ index.php [L]
+#
+#    RewriteEngine On
+#    RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+#    RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+#
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    RewriteEngine On
+    RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+    RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+</IfModule>

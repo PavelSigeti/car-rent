@@ -1,0 +1,479 @@
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/dist/css/bootstrap-reboot.min.css";
+
+$color: #3B81F2;
+
+.form_car-pricing {
+	display: flex;
+	flex-direction: column;
+}
+.form_car-pricing-container {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 15px;
+	max-width: 600px;
+}
+.form_car-pricing-item {
+	width: 100%;
+}
+.form-admin {
+	input {
+		width: 100%;
+		border: 1px solid #aaa;
+		height: 40px;
+		padding: 0px 5px;
+		border-radius: 5px;
+		margin-bottom: 15px;
+	}
+	button {
+		background-color: $color;
+		color: #fff;
+		border: 0px;
+		height: 40px;
+		width: fit-content;
+		padding: 0px 20px;
+		border-radius: 5px;
+		margin-bottom: 15px;
+		&:hover {
+			opacity: .8;
+		}
+	}
+	select {
+		max-width: 200px;
+		width: 100%;
+		border: 1px solid #aaa;
+		height: 40px;
+		padding: 0px 5px;
+		border-radius: 5px;
+		margin-bottom: 15px;
+	}
+	p {
+		margin-bottom: 5px;
+	}
+	input[type="number"] {
+		max-width: 200px;
+	}
+	.form-file-input {
+		width: auto;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		&::file-selector-button {
+			background-color: $color;
+			border: none;
+			color: #fff;
+			height: 40px;
+			padding: 0px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			&:hover {
+				opacity: .8;
+			}
+		}
+	}
+	.del-btn {
+		background-color: #ff4d4d;
+	}
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.car-price-table {
+	margin-bottom: 30px;
+	td, th {
+		border: 1px solid #ccc;
+		padding: 5px;
+		min-width: 100px;
+	}
+}
+.admin-car-price__container {
+	overflow: auto;
+}
+.admin-car-price {
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+	justify-content: space-between;
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+	input {
+		max-width: 100px;
+	}
+	.admin-car-price__head .admin-car-price__item:last-child {
+		border-right: none;
+	}
+	.admin-car-price__head:first-child {
+		border-bottom: 1px solid #ccc;
+	}
+}
+.admin-car-price__head, .admin-car-price__form {
+	display: flex;
+	flex-direction: row;
+}
+.admin-car-price__form {
+	width: calc(100% / 6 * 5);
+	.admin-car-price__item {
+		flex-basis: calc(100% / 5);
+	}
+}
+.admin-car-price__item {
+	flex-basis: calc(100% / 6);
+	padding: 5px;
+	border-right: 1px solid #ccc;
+	display: flex;
+	align-items: center;
+}
+.admin-car-price__content {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	border-top: 1px solid #ccc;
+	button {
+		font-size: 14px;
+		margin: 0;
+		padding: 0px 12px;
+		border: 0px;
+		background-color: $color;
+		border-radius: 5px;
+		color: #fff;
+		height: 30px;
+        text-align: center;
+        min-width: 120px;
+		&:hover {
+			opacity: .8;
+		}
+	}
+    button.admin-car-price__form-btn-ajax {
+        background-color: #00d754;
+    }
+    button.admin-car-price__form-btn-ajax__error {
+        background-color: #ff1818;
+    }
+	input {
+		margin-bottom: 0;
+        transition: .3s;
+        box-shadow: 0px 0px 8px 0px rgba(0, 215, 84, 0);
+	}
+    input.admin-car-price__input-ajax {
+        border: 1px solid #00d754;
+        box-shadow: 0px 0px 8px 0px rgba(0, 215, 84, 0.3);
+    }
+    input.admin-car-price__input-ajax__error {
+        border: 1px solid #ff1818;
+        box-shadow: 0px 0px 20px 0px rgba(255, 24, 24, 0.3);
+    }
+}
+.admin-car-price__del {
+	width: calc(100% /6);
+	padding: 5px;
+	display: flex;
+	align-items: center;
+}
+.checkbox-container {
+    width: fit-content;
+    display: flex;
+    input {
+        width: 25px;
+        height: 25px;
+    }
+    lable {
+        display: block;
+        width: fit-content;
+        margin-right: 10px;
+    }
+    margin-bottom: 15px;
+}
+body {
+	background-color: #f3f3f9;
+}
+header {
+	background-color: #fff;
+	height: 60px;
+	display: flex;
+	align-items: center;
+    box-shadow: 0 2px 4px rgb(15 34 58 / 12%);
+    margin-bottom: 30px;
+}
+.main-menu {
+	ul {
+		display: flex;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		list-style: none;
+	}
+	a {
+		padding-right: 15px;
+		padding-left: 15px;
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		color: #242424;
+		&:hover {
+			background-color: #eee;
+		}
+	}
+}
+.add-new-btn {
+	padding: 15px 30px;
+	background-color: $color;
+	display: flex;
+	width: fit-content;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 10px;
+	transition: .3s;
+	font-weight: 500;
+	margin-bottom: 15px;
+	font-size: 15px;
+	&:hover {
+		color: #fff;
+		opacity: .8;
+	}
+}
+.container-fluid {
+	max-width: 1700px;
+}
+
+.image-block {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.image-item {
+    margin-right: 15px;
+}
+.car-table__img {
+	width: 150px;
+	height: 100px;
+	object-fit: cover;
+}
+.car-table {
+	width: 100%;
+	margin-bottom: 30px;
+
+	td a {
+	  width: 100%;
+	  display: block;
+	  height: 100%;
+	  display: flex;
+	  align-items: center;
+	}
+	td, th {
+	  border: 1px solid #ccc;
+	}
+	th {
+		transition: .3s;
+		cursor: pointer;
+		&:hover {
+			background-color: #ddd;
+		}
+	}
+	td {
+		height: 100px;
+	}
+	tbody {
+		tr {
+			transition: .3s;
+			&:hover {
+				background-color: #ddd;
+			}
+		}
+	}
+}
+.car-table__th-img {
+	width: 150px;
+	padding: 0;
+}
+.car-table__th-price {
+	width: 200px;
+	padding: 10px;
+}
+.car-table__th-id {
+	width: 50px;
+	text-align: center;
+}
+.car-table__td-id {
+	text-align: center;
+}
+.car-table__td-img  {
+	padding: 0;
+}
+.car-table__td-name, .car-table__td-price, .car-table__th-name {
+	padding: 10px;
+}
+.bars, .exit {
+	display: none;
+	visibility: hidden;
+}
+.main-menu {
+	right: -550px;
+	transition: .5s;
+}
+.main-menu__show {
+	right: 0;
+	z-index: 100;
+}
+.dark-back {
+	visibility: hidden;
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #00000080;
+}
+.dark-back__show {
+	visibility: visible;
+	display: block;
+}
+.quad-input {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	select {
+		width: 100%;
+		min-width: 150px;
+	}
+}
+#cke_text {
+	margin-bottom: 15px;
+}
+.admin-cat__container {
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	flex-wrap: wrap;
+}
+.admin-cat__item {
+	width: calc(25% - 15px);
+	height: 75px;
+	background-color: #fff;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #242424;
+	font-weight: 500;
+	box-shadow: 0 2px 4px rgb(15 34 58 / 10%);
+	text-decoration: none;
+	background-color: #fff;
+	transition: .3s;
+	&:hover {
+		box-shadow: 0 2px 10px rgb(15 34 58 / 20%);
+
+	}
+}
+h1 {
+	margin-bottom: 15px;
+}
+.ul-admin {
+	font-size: 17px;
+	li {
+		margin-bottom: 5px;
+	}
+}
+.meta-item {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+	button {
+		width: fit-content;
+	}
+}
+.form-login {
+	width: 100%;
+	max-width: 500px;
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 2px 4px rgb(15 34 58 / 12%);
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.login-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+	overflow: auto;
+}
+.remember-checkbox {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	input {
+		height: 15px;
+		width: 15px;
+		margin-right: 5px;
+		margin-bottom: 0;
+	}
+}
+.order {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+    transition: .3s;
+    &:hover {
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
+    }
+    p {
+        margin-bottom: 5px;
+    }
+}
+.pagination {
+    padding: 0;
+    margin-bottom: 15px;
+    display: flex;
+    li {
+        list-style: none;
+    }
+    .page-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f1f1f1;
+        color: #242424;
+        font-size: 15px;
+        border-radius: 30px;
+        margin-right: 10px;
+        transition: .3s;
+        cursor: pointer;
+        &:hover {
+            background-color: $color;
+            color: #fff;
+        }
+    }
+}
