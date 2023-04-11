@@ -26,6 +26,6 @@ class ImageSeeder extends Seeder
     {
         $car = Car::query()->first();
 
-        $this->imagesContract->saveMainImage(UploadedFile::fake()->image('photo2.jpg'), $car->id);
+        $this->imagesContract->saveMainImage(UploadedFile::fake()->image('photo.jpg'), $car->id);
     }
 }

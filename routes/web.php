@@ -57,7 +57,6 @@ Route::middleware('admin')->group(function() {
 //Route::post('/get-price', [\App\Http\Controllers\User\CarAjaxController::class, 'place'])->name('order.place');
 
 
-
 Route::middleware('collect')->group(function() {
     Route::get('/', [\App\Http\Controllers\User\CarController::class, 'index'])->name('home');
     Route::get('/car', [\App\Http\Controllers\User\CarController::class, 'car'])->name('car');
@@ -67,7 +66,6 @@ Route::middleware('collect')->group(function() {
     Route::get('/logout', [\App\Http\Controllers\Admin\UserController::class, 'logout'])->name('logout');
 
     Route::get('/car/{slug}', [\App\Http\Controllers\User\CarController::class, 'show'])->name('user.car.show');
-
 
     Route::post('/car/{id}/order/', [\App\Http\Controllers\User\OrderController::class, 'store'])->name('order.store');
 
@@ -83,9 +81,6 @@ Route::middleware('collect')->group(function() {
 
     Route::get('/{type}/{slug}', [\App\Http\Controllers\User\MetaController::class, 'meta'])->name('meta.show');
 
-
-
     Route::get('/{slug}',[\App\Http\Controllers\User\PagePlaceController::class, 'show'])->name('page-place');
-
 
     });
