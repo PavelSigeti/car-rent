@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Bot;
 use App\Models\UserData;
 use Closure;
 use Illuminate\Http\Request;
@@ -18,6 +19,13 @@ class CollectData
     public function handle(Request $request, Closure $next)
     {
         $data = $request->server();
+
+        $bot = Bot::query()->where('ip', $data['HTTP_X_REAL_IP'])->exists();
+
+        if($bot) {
+            return redirect()->route('verify');
+        }
+
         $cookie = $request->cookie('laravel_session');
 
         UserData::query()->create(

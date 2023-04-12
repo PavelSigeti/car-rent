@@ -56,6 +56,7 @@ Route::middleware('admin')->group(function() {
 
 //Route::post('/get-price', [\App\Http\Controllers\User\CarAjaxController::class, 'place'])->name('order.place');
 
+Route::get('/verify', [\App\Http\Controllers\VerifyController::class, 'index'])->name('verify');
 
 Route::middleware('collect')->group(function() {
     Route::get('/', [\App\Http\Controllers\User\CarController::class, 'index'])->name('home');
@@ -83,4 +84,4 @@ Route::middleware('collect')->group(function() {
 
     Route::get('/{slug}',[\App\Http\Controllers\User\PagePlaceController::class, 'show'])->name('page-place');
 
-    });
+});

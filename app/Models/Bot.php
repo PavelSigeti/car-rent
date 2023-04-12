@@ -10,4 +10,8 @@ class Bot extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'ip',
+    ];
 }
