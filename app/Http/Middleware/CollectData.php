@@ -19,7 +19,11 @@ class CollectData
     public function handle(Request $request, Closure $next)
     {
         $data = $request->server();
-        $bot = Bot::query()->where('ip', $_SERVER['REMOTE_ADDR'])->exists();
+        if(isset($_SERVER['REMOTE_ADDR'])) {
+            $bot = Bot::query()->where('ip', $_SERVER['REMOTE_ADDR'])->exists();
+        } else {
+            $bot = false;
+        }
 
         if($bot) {
             return redirect()->route('verify');

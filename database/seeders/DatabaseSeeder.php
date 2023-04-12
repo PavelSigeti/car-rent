@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PageSeeder::class);
         $this->call(CarPriceSeeder::class);
         $this->call(ServiceSeeder::class);
-        $this->call(ImageSeeder::class);
+        // $this->call(ImageSeeder::class);
     }
 }
