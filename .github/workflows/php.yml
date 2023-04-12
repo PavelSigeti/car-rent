@@ -12,7 +12,7 @@ jobs:
   phpunit:
     runs-on: ubuntu-latest
     container:
-      image: kirschbaumdevelopment/laravel-test-runner:8.1
+      image: kirschbaumdevelopment/laravel-test-runner:8.0
 
     services:
       mysql:
@@ -32,9 +32,6 @@ jobs:
     - name: Install composer dependencies
       run: |
         composer install --no-scripts
-
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
 
     - name: Prepare Laravel Application
       run: |
