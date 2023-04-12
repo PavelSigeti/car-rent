@@ -38,9 +38,7 @@
 
         const result = await response.json();
 
-        if(result.result) {
-            window.location.href = '/';
-        }
+        window.location.href = '/';
     }
 
 </script>
