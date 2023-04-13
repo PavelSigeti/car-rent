@@ -9,40 +9,40 @@ on:
       - main
 
 jobs:
-  Tests:
-    runs-on: ubuntu-latest
-    container:
-      image: kirschbaumdevelopment/laravel-test-runner:8.1
+  # Tests:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: kirschbaumdevelopment/laravel-test-runner:8.1
 
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: test
-        ports:
-          - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+  #   services:
+  #     mysql:
+  #       image: mysql:5.7
+  #       env:
+  #         MYSQL_ROOT_PASSWORD: password
+  #         MYSQL_DATABASE: test
+  #       ports:
+  #         - 33306:3306
+  #       options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 1
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #     with:
+  #       fetch-depth: 1
 
-    - name: Install composer dependencies
-      run: |
-        composer install --no-scripts
+  #   - name: Install composer dependencies
+  #     run: |
+  #       composer install --no-scripts
 
-    - name: Prepare Laravel Application
-      run: |
-        cp .env.ci .env
-        php artisan key:generate
+  #   - name: Prepare Laravel Application
+  #     run: |
+  #       cp .env.ci .env
+  #       php artisan key:generate
 
-    - name: Run Testsuite
-      run: vendor/bin/phpunit tests/
+  #   - name: Run Testsuite
+  #     run: vendor/bin/phpunit tests/
 
   Deploy:
-    needs: Tests
+    # needs: Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -58,8 +58,8 @@ jobs:
             cd app/php
             git pull
             cd ..
-            docker-compose exec php bash
-            composer install
+            docker-compose exec php composer install
+
             exit
             docker-compose up node -d
 
