@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  phpunit:
+  Tests:
     runs-on: ubuntu-latest
     container:
       image: kirschbaumdevelopment/laravel-test-runner:8.1
@@ -25,7 +25,7 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 1
 
@@ -40,4 +40,26 @@ jobs:
 
     - name: Run Testsuite
       run: vendor/bin/phpunit tests/
+
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SECRET_HOST }}
+          username: ${{ secrets.SECRET_USER }}
+          key: ${{ secrets.SECRET_KEY }}
+          port: 22
+          script: |
+            cd app/php
+            git clone
+            cd ..
+            docker-compose exec php bash
+            composer install
+            exit
+            docker-compose up node -d
+
 

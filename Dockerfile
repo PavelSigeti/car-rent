@@ -31,8 +31,7 @@ RUN docker-php-ext-enable imagick
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN chown -R www-data:www-data /var/www
-
+RUN chown -R www-data:www-data *
 
 EXPOSE 9000
 
